@@ -1,0 +1,29 @@
+body {
+  background:#0f0f14;
+  color:white;
+  font-family:sans-serif;
+}
+
+.battle-card {
+  background:#1c1c28;
+  padding:10px;
+  margin:10px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.win { border:2px solid #3cff7a; }
+.lose { border:2px solid #ff4d4d; }
+
+.battle-detail {
+  position:relative;
+  min-height:100vh;
+  padding:20px;
+}
+
+.bg {
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  filter:blur(2px) brightness(0.5);
+}
