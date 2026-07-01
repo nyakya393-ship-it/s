@@ -1,0 +1,50 @@
+<form id="battleForm">
+
+  <input id="stage" placeholder="ステージ">
+
+  <select id="result">
+    <option value="win">WIN</option>
+    <option value="lose">LOSE</option>
+  </select>
+
+  <select id="weapon"></select>
+
+  <input id="sub">
+  <input id="special">
+
+  <input id="kills" type="number">
+  <input id="deaths" type="number">
+  <input id="paint" type="number">
+
+  <button type="submit">保存</button>
+</form>
+
+<script>
+const weapons = ["スプラシューター","プライムシューター",".96ガロン"];
+
+window.onload = () => {
+  document.getElementById("weapon").innerHTML =
+    weapons.map(w => `<option>${w}</option>`).join("");
+};
+
+document.getElementById("battleForm").onsubmit = e => {
+  e.preventDefault();
+
+  const battles = getBattles();
+
+  battles.push({
+    id: Date.now(),
+    stage: stage.value,
+    result: result.value,
+    weapon: weapon.value,
+    sub: sub.value,
+    special: special.value,
+    kills: +kills.value,
+    deaths: +deaths.value,
+    paint: +paint.value
+  });
+
+  saveBattles(battles);
+  location.href = "index.html";
+};
+</script>
