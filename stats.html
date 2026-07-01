@@ -1,0 +1,19 @@
+<div id="stats"></div>
+
+<script>
+const battles = getBattles();
+
+const total = battles.length;
+const wins = battles.filter(b => b.result === "win").length;
+
+const kills = battles.reduce((a,b)=>a+b.kills,0);
+const deaths = battles.reduce((a,b)=>a+b.deaths,0);
+const paint = battles.reduce((a,b)=>a+b.paint,0);
+
+document.getElementById("stats").innerHTML = `
+  <div>総試合: ${total}</div>
+  <div>勝率: ${(wins/total*100 || 0).toFixed(1)}%</div>
+  <div>K/D: ${(kills/deaths || 0).toFixed(2)}</div>
+  <div>平均塗り: ${(paint/total || 0).toFixed(0)}</div>
+`;
+</script>
