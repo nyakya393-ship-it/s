@@ -1,0 +1,25 @@
+<div id="detail"></div>
+
+<script>
+const id = new URLSearchParams(location.search).get("id");
+const b = getBattleById(id);
+
+document.getElementById("detail").innerHTML = `
+  <div class="battle-detail ${b.result}">
+    <div class="bg"></div>
+
+    <h1>${b.result}</h1>
+    <h2>${b.stage}</h2>
+
+    <img src="/icons/${b.weapon}.png">
+
+    <p>${b.sub} / ${b.special}</p>
+
+    <div>K ${b.kills} / D ${b.deaths}</div>
+    <div>Paint ${b.paint}</div>
+  </div>
+`;
+
+document.querySelector(".bg").style.backgroundImage =
+  `url(/stages/${b.stage}.jpg)`;
+</script>
